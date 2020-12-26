@@ -6,21 +6,19 @@ import { ReactComponent as Logo } from '../../assets/logo.svg';
 import CustomButton from '../../components/custom-button/custom-button.component';
 import FormInput from '../../components/form-input/form-input.component';
 
-import './sign-up.styles.scss';
+import './sign-in.styles.scss';
 
 interface EmailPassword {
     email: string,
     password: string,
-    fullName: string,
-    username: string,
 }
 
-class SignUp extends React.Component {
+class SignIn extends React.Component {
     state: EmailPassword;
 
     constructor(props: any) {
         super(props);
-        this.state = { email: '', password: '', fullName: '', username: '' };
+        this.state = { email: '', password: '' };
     }
 
     handleChange = async (event: any) => {
@@ -30,7 +28,8 @@ class SignUp extends React.Component {
 
     render() {
         return (
-            <div className="sign-up">
+            <div className="sign-in">
+                <div className="left"></div>
                 <div className="right">
                     <div className="container email-password">
                         <Logo className="logo"></Logo>
@@ -46,22 +45,6 @@ class SignUp extends React.Component {
                                     required
                                 />
                                 <FormInput
-                                    name="fullName" 
-                                    type="fullName" 
-                                    handleChange={this.handleChange}
-                                    value={this.state.fullName} 
-                                    placeholder="Full Name"
-                                    required
-                                />
-                                <FormInput
-                                    name="username" 
-                                    type="username" 
-                                    handleChange={this.handleChange}
-                                    value={this.state.username} 
-                                    placeholder="Username"
-                                    required
-                                />
-                                <FormInput
                                     name="password" 
                                     type="password" 
                                     handleChange={this.handleChange}
@@ -70,7 +53,7 @@ class SignUp extends React.Component {
                                     required
                                 />
                                 <CustomButton type="submit">
-                                    Sign up
+                                    Sign in
                                 </CustomButton>
                             </form>
                         </div>
@@ -80,12 +63,12 @@ class SignUp extends React.Component {
                                 type="button" 
                                 isGoogleSignIn
                             >
-                                Sign up with Google
+                                Sign in with Google
                             </CustomButton>
                         </div>
                     </div>
                     <div className="container no-account">
-                        Have an account? <Link to="/sign-in">Sign in</Link>
+                        Don't have an account? <Link to="/sign-up">Sign up</Link>
                     </div>
                 </div>
             </div>
@@ -93,4 +76,4 @@ class SignUp extends React.Component {
     }
 }
 
-export default SignUp
+export default SignIn
