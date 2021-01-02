@@ -5,4 +5,9 @@ input {
   width: 100%;
   border-radius: 2px;
   background: #fafafa;
+
+  &:focus {
+    outline: none;
+    border: 1px solid rgb(161, 161, 161);
+  }
 }

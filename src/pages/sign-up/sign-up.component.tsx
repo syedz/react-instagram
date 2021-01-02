@@ -1,10 +1,13 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import { ReactComponent as Logo } from '../../assets/logo.svg';
 
 import CustomButton from '../../components/custom-button/custom-button.component';
 import FormInput from '../../components/form-input/form-input.component';
+
+import { googleSignInStart, setCurrentUser } from '../../redux/user/user.actions';
 
 import './sign-up.styles.scss';
 
@@ -15,7 +18,12 @@ interface EmailPassword {
     username: string,
 }
 
-class SignUp extends React.Component {
+interface Props {
+    googleSignInStart: () => void,
+    setCurrentUser: (user: any) => void,
+}
+
+class SignUp extends React.Component<Props> {
     state: EmailPassword;
 
     constructor(props: any) {
@@ -26,6 +34,15 @@ class SignUp extends React.Component {
     handleChange = async (event: any) => {
         const { value, name } = event.target;
         this.setState({ [name]: value }, () => console.log(this.state));
+    }
+
+    handleGoogleSignIn = async () => {
+        // const { setCurrentUser } = this.props;
+        // const res = await signInWithGoogle();
+
+        // setCurrentUser({
+        //     ...res.user,
+        // });
     }
 
     render() {
@@ -79,6 +96,7 @@ class SignUp extends React.Component {
                             <CustomButton 
                                 type="button" 
                                 isGoogleSignIn
+                                onClick={this.handleGoogleSignIn}
                             >
                                 Sign up with Google
                             </CustomButton>
@@ -93,4 +111,9 @@ class SignUp extends React.Component {
     }
 }
 
-export default SignUp
+const mapDispatchToProps = (dispatch: any) => ({
+    googleSignInStart: () => dispatch(googleSignInStart()),
+    setCurrentUser: (user: any) => dispatch(setCurrentUser(user)),
+});
+
+export default connect(null, mapDispatchToProps)(SignUp);
