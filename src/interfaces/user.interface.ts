@@ -1,5 +1,3 @@
-import userEvent from '@testing-library/user-event';
-
 interface User {
     uid: string
     email: string

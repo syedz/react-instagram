@@ -6,3 +6,5 @@ export const selectCurrentUser = createSelector(
 	[selectUser],
 	(user) => user.currentUser
 );
+
+export type CurrentUser = ReturnType<typeof selectCurrentUser>;

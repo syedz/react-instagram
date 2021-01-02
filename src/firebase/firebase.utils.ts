@@ -17,8 +17,6 @@ export const createUserProfileDocument = async (userAuth: any, additionalData: a
 	const userRef = firestore.doc(`users/${userAuth.uid}`);
 	const snapShot = await userRef.get(); 
 
-	console.log(snapShot);
-
 	if (!snapShot.exists) {
 		const { displayName, email } = userAuth;
 		const createdAt = new Date();
@@ -37,6 +35,15 @@ export const createUserProfileDocument = async (userAuth: any, additionalData: a
 
 	return userRef;
 };
+
+export const getCurrentUser = () => {
+	return new Promise((resolve, reject) => {
+		const unsubscribe = auth.onAuthStateChanged(userAuth => {
+			unsubscribe();
+			resolve(userAuth);
+		}, reject);
+	});
+}
 
 firebase.initializeApp(config);
 
