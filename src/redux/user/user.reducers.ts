@@ -12,7 +12,13 @@ const userReducer = (state = INITIAL_STATE, action: { type: any; payload: any; }
 				...state,
 				currentUser: action.payload,
 				error: null,
-			}
+			};
+		case UserActionTypes.SIGN_OUT_SUCCESS:
+			return {
+				...state,
+				currentUser: null,
+				error: null,
+			};
 		case UserActionTypes.SET_CURRENT_USER:
 			return {
 				...state,

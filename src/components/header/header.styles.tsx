@@ -33,6 +33,7 @@ export const IconList = styled.div`
 export const IconItem = styled(Link)`
   cursor: pointer;
   padding: 10px 15px;
-  font-size: 25px;
+  font-size: 15px;
+  font-weight: 200;
   color: black;
 `;

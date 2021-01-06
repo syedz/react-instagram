@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
 
 import { 
   faUser,
@@ -7,22 +9,28 @@ import {
   faCompass,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
 import { ReactComponent as Logo } from '../../assets/logo.svg';
 
+import { RootState } from '../../redux/root-reducer';
+
+import { CurrentUser, selectCurrentUser } from '../../redux/user/user.selectors'
+import { signOutStart } from '../../redux/user/user.actions';
 import { 
-  HeaderContainer, 
-  HeaderWrapper, 
-  IconItem, 
+  HeaderContainer,
+  HeaderWrapper,
+  IconItem,
   IconList,
   LogoContainer
 } from './header.styles';
 
 import './header.styles.scss';
 
-interface Props {}
+interface Props {
+  currentUser?: CurrentUser,
+  signOutStart?: () => void,
+}
 
-const Header: React.FC<Props> = () => (
+const Header: React.FC<Props> = ({ currentUser, signOutStart }) => (
   <HeaderContainer>
     <HeaderWrapper>
       <LogoContainer to="/">
@@ -41,9 +49,29 @@ const Header: React.FC<Props> = () => (
         <IconItem to="">
           <FontAwesomeIcon icon={faCompass} />
         </IconItem>
+        {
+          currentUser ? 
+            <IconItem as='div' onClick={signOutStart}>
+              <p>{currentUser.email}</p>
+            </IconItem> :
+            <div/>
+        }
       </IconList> 
     </HeaderWrapper>
   </HeaderContainer>
 );
 
-export default Header;
+const mapStateToProps = createStructuredSelector<RootState, { 
+  currentUser: CurrentUser;
+}>({
+  currentUser: selectCurrentUser
+});
+
+const mapDispatchToProps = (dispatch: any) => ({
+  signOutStart: () => dispatch(signOutStart()),
+})
+
+export default connect(
+  mapStateToProps, 
+  mapDispatchToProps
+)(Header);

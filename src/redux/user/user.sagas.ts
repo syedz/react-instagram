@@ -5,7 +5,11 @@ import {
 	getCurrentUser, 
 	googleProvider, 
 } from '../../firebase/firebase.utils';
-import { signInSuccess } from './user.actions';
+import { 
+	signInSuccess,
+	signOutFailure, 
+	signOutSuccess,
+} from './user.actions';
 
 import UserActionTypes from './user.types';
 
@@ -29,6 +33,15 @@ export function* signInWithGoogle() {
 	}
 }
 
+export function* signOut() {
+	try {
+			yield auth.signOut();
+			yield put(signOutSuccess());
+	} catch (error) {
+			yield put(signOutFailure(error));
+	}
+}
+
 export function* isUserAuthenticated() {
 	try {
 		const userAuth = yield getCurrentUser();
@@ -47,9 +60,14 @@ export function* onGoogleSignInStart() {
 	yield takeLatest(UserActionTypes.GOOGLE_SIGN_IN_START, signInWithGoogle);
 }
 
+export function* onSignOutStart() {
+	yield takeLatest(UserActionTypes.SIGN_OUT_START, signOut)
+}
+
 export function* userSagas() {
 	yield all([
 		call(onGoogleSignInStart),
 		call(onCheckUserSession),
+		call(onSignOutStart),
 	])
 }
