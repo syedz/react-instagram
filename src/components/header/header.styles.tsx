@@ -34,6 +34,6 @@ export const IconItem = styled(Link)`
   cursor: pointer;
   padding: 10px 15px;
   font-size: 15px;
-  font-weight: 200;
+  font-weight: 300;
   color: black;
 `;
