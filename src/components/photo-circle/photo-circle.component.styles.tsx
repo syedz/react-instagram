@@ -12,8 +12,18 @@ const getPhotoWidthStyles = (props: IPhotoCircleProps) => {
   }
 };
 
+const getPhotoBorderStyles = (props: IPhotoCircleProps) => {
+  if (props.borderWidth) {
+    return css`
+      padding: 2px;
+      border: ${props.borderWidth}px solid lightblue;
+    `;
+  }
+}
+
 export const PhotoContainer = styled.img`
   border-radius: 50%;
 
   ${getPhotoWidthStyles}
+  ${getPhotoBorderStyles}
 `;
