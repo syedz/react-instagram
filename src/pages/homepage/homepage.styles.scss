@@ -1,0 +1,14 @@
+.homepage {
+  display: grid;
+  grid-template-columns: 65% 35%;
+  gap: 20px;
+
+  .image-feed-container {
+    // border: 1px solid lightgrey;
+  }
+
+  .suggestions-for-you-container {
+    padding: 20px;
+    // border: 1px solid lightgrey;
+  }
+}

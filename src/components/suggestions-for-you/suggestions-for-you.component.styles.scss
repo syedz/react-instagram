@@ -1,0 +1,37 @@
+.suggestions-for-you {
+  .photo-tile {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 10px;
+
+    .photo {
+      align-self: center;
+    }
+    .text {
+      align-self: center;
+      font-size: 12px;
+      .display-name {
+        font-size: 13px;
+        font-weight: bolder;
+      }
+      .email {
+        color: grey;
+      }
+    }
+    .link {
+      align-self: center;
+      font-size: 12px;
+    }
+  }
+
+  .suggestions {
+    margin-top: 20px;
+    h1 {
+      font-size: 14px;
+      color: grey;
+    }
+    .photo-tile {
+      margin-top: 10px;
+    }
+  }
+}

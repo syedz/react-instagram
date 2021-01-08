@@ -24,6 +24,7 @@ import {
 } from './header.styles';
 
 import './header.styles.scss';
+import PhotoCircle from '../photo-circle/photo-circle.component';
 
 interface Props {
   currentUser?: CurrentUser,
@@ -52,9 +53,9 @@ const Header: React.FC<Props> = ({ currentUser, signOutStart }) => (
         {
           currentUser ? 
             <IconItem as='div' onClick={signOutStart}>
-              <p>{currentUser.email}</p>
+              <PhotoCircle url={currentUser.photoURL} alt={currentUser.email} />
             </IconItem> :
-            <div/>
+            <div />
         }
       </IconList> 
     </HeaderWrapper>
