@@ -23,7 +23,6 @@ import {
   LogoContainer
 } from './header.styles';
 
-import './header.styles.scss';
 import PhotoCircle from '../photo-circle/photo-circle.component';
 
 interface Props {

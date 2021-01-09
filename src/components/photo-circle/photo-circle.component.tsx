@@ -1,14 +1,10 @@
 import React from 'react';
 
 import IPhotoCircleProps from '../../interfaces/props.interface';
-import { PhotoContainer } from './photo-circle.component.styles';
+import { PhotoContainer } from './photo-circle.styles';
 
-import './photo-circle.component.styles';
-
-const PhotoCircle: React.FC<IPhotoCircleProps> = ({ url, alt, ...props }) => {
-  return (
-    <PhotoContainer src={url} alt={alt} {...props} />
-  );
-}
+const PhotoCircle: React.FC<IPhotoCircleProps> = ({ url, alt, ...props }) => (
+  <PhotoContainer src={url} alt={alt} {...props} />
+);
 
 export default PhotoCircle;

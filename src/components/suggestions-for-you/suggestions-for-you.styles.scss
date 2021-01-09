@@ -1,23 +1,7 @@
 .suggestions-for-you {
   .photo-tile {
     display: grid;
-    grid-template-columns: auto auto auto;
-    gap: 10px;
-
-    .photo {
-      align-self: center;
-    }
-    .text {
-      align-self: center;
-      font-size: 12px;
-      .display-name {
-        font-size: 13px;
-        font-weight: bolder;
-      }
-      .email {
-        color: grey;
-      }
-    }
+    grid-template-columns: auto auto;
     .link {
       align-self: center;
       font-size: 12px;

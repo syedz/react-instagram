@@ -9,7 +9,7 @@ export const HeaderContainer = styled.div`
 `;
 
 export const HeaderWrapper = styled.div`
-  width: 800px;
+  width: 900px;
   height: 70px;
   margin: 0 auto;
   display: flex;
@@ -19,6 +19,10 @@ export const HeaderWrapper = styled.div`
 
 export const LogoContainer = styled(Link)`
   width: 120px;
+  .logo {
+    width: 150px;
+    height: 40px;
+  }
 `;
 
 export const IconList = styled.div`
@@ -33,7 +37,7 @@ export const IconList = styled.div`
 export const IconItem = styled(Link)`
   cursor: pointer;
   padding: 10px 15px;
-  font-size: 15px;
+  font-size: 18px;
   font-weight: 300;
   color: black;
 `;
