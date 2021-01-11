@@ -1,11 +1,15 @@
 body {
   background: #fafafa;
+  font-size: 12px;
 }
 
-a {
+a, .btn {
   text-decoration: none;
   color: #0095f6;
   font-weight: bold;
+  border: none;
+  background: none;
+  cursor: pointer;
 }
 
 * {

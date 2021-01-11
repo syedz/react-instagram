@@ -3,4 +3,4 @@ export default interface IPhotoCircleProps {
   alt?: string,
   width?: number,
   borderWidth?: number,
-}
+};

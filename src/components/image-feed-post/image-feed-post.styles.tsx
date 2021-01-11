@@ -14,3 +14,19 @@ export const Image = styled.img`
 export const HeaderContainer = styled.div`
   padding: 10px;
 `;
+
+export const InteractionsContainer = styled.div`
+  display: flex;
+  padding: 10px;
+  justify-content: space-between;
+`;
+
+export const LikeCommentShareList = styled.div`
+  color: black;
+  display: flex;
+  .icon {
+    cursor: pointer;
+    font-size: 23px;
+    margin-right: 15px;
+  }
+`;

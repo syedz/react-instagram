@@ -4,10 +4,11 @@ import { createStructuredSelector } from 'reselect';
 
 import { 
   faUser,
-  faHome,
   faHeart,
   faCompass,
-} from '@fortawesome/free-solid-svg-icons';
+} from '@fortawesome/free-regular-svg-icons';
+
+import { faHome } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ReactComponent as Logo } from '../../assets/logo.svg';
 
@@ -52,7 +53,11 @@ const Header: React.FC<Props> = ({ currentUser, signOutStart }) => (
         {
           currentUser ? 
             <IconItem as='div' onClick={signOutStart}>
-              <PhotoCircle url={currentUser.photoURL} alt={currentUser.email} />
+              <PhotoCircle 
+                url={currentUser.photoURL} 
+                alt={currentUser.email} 
+                width={20}
+              />
             </IconItem> :
             <div />
         }
